@@ -1,1 +1,1 @@
-Repositório de evidenciação das atividades do curso de PHP na Alura
+Repositório de evidenciação das atividades dos cursos de PHP na Alura
