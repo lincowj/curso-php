@@ -13,5 +13,9 @@
             "email": "lincoln.souza@webjump.com.br"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/css-selector": "^5.3",
+        "guzzlehttp/guzzle": "^7.3",
+        "symfony/dom-crawler": "^5.3"
+    }
 }
