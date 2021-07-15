@@ -2,19 +2,19 @@
 
 class Titular
 {
-    private string $cpf;
+    private CPF $cpf;
     private string $nome;
 
-    public function __construct(string $cpf, string $nome)
+    public function __construct(CPF $cpf, string $nome)
     {
         $this->validarNome($nome);
         $this->nome = $nome;
         $this->cpf = $cpf;
     }
 
-    public function recuperarCPF(): string
+    public function recuperarNumCPF(): string
     {
-        return $this->cpf;
+        return $this->cpf->recuperarCPF();
     }
 
     public function recuperarNome(): string
