@@ -1,5 +1,7 @@
 <?php
 
+namespace Modelo;
+
 #doing the course's challenge
 
 class CPF
