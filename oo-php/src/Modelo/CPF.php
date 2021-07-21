@@ -1,8 +1,10 @@
 <?php
 
-#doing the course's challenge
+namespace Webjump239\OoPhp\Modelo;
 
-class CPF
+#doing the course's (oo-php) challenge
+
+final class CPF
 {
     private string $cpf;
 

@@ -1,0 +1,15 @@
+{
+    "name": "webjump239/oo-php",
+    "autoload": {
+        "psr-4": {
+            "Webjump239\\OoPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lincowj",
+            "email": "lincoln.souza@webjump.com.br"
+        }
+    ],
+    "require": {}
+}
