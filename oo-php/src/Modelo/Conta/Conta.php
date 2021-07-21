@@ -1,11 +1,13 @@
 <?php
 
-namespace Modelo\Conta;
+namespace Webjump239\OoPhp\Modelo\Conta;
 
-class Conta
+use Webjump239\OoPhp\Modelo\Conta\Titular;
+
+abstract class Conta
 {
     private Titular $titular;
-    private float $saldo; //using type declaration for better control
+    protected float $saldo; //using type declaration for better control
     private static int $numContas = 0;
 
     public function __construct(Titular $titular)
@@ -23,11 +25,13 @@ class Conta
 
     public function sacar(float $valorASacar)
     {
-        if ($valorASacar > $this->saldo){
+        $tarifaSaque = $valorASacar * $this->percenturalTarifa;
+        $valorSaque = $valorASacar + $tarifaSaque;
+        if ($valorSaque > $this->saldo){
             echo 'Saldo indisponível';
             return;
         } 
-        $this->saldo -= $valorASacar;
+        $this->saldo -= $valorSaque;
     }
 
     public function depositar(float $valorADepositar): void
@@ -39,15 +43,7 @@ class Conta
         $this->saldo += $valorADepositar;
     }
 
-    public function transferir(float $valorATransferir, Conta $contaDestino): void
-    {
-        if ($valorATransferir > $this->saldo){
-            echo "Saldo indisponível";
-            return;
-        }
-        $this->sacar($valorATransferir);
-        $contaDestino->depositar($valorATransferir);
-    }
+    abstract protected function percentualTarifa(): float;
 
     public function recuperarSaldo(): float
     {

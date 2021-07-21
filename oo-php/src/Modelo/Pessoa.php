@@ -1,9 +1,11 @@
 <?php
 
-namespace Modelo;
+namespace Webjump239\OoPhp\Modelo;
 
 class Pessoa
 {
+    use AcessoPropriedades;
+    
     protected string $nome;
     private CPF $cpf;
 
@@ -14,17 +16,17 @@ class Pessoa
         $this->cpf = $cpf;
     }
 
-    public function recuperaNome(): string
+    public function recuperarNome(): string
     {
         return $this->nome;
     }
 
-    public function recuperaCpf(): string
+    public function recuperarCpf(): string
     {
         return $this->cpf->recuperarCPF();
     }
 
-    protected function validarNome(string $nome): void
+    final protected function validarNome(string $nome): void
     {
         if (strlen($nome) < 5){
             echo "Nome precisa ter pelo menos 5 caracteres";

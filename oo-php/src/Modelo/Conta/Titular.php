@@ -1,8 +1,12 @@
 <?php
 
-namespace Modelo\Conta;
+namespace Webjump239\OoPhp\Modelo\Conta;
 
-class Titular extends Pessoa
+use Webjump239\OoPhp\Modelo\{Autenticavel, Pessoa, 
+    Endereco, 
+    CPF};
+
+class Titular extends Pessoa implements Autenticavel
 {
     private Endereco $endereco;
 
@@ -15,5 +19,10 @@ class Titular extends Pessoa
     public function recuperarEndereco(): Endereco
     {
         return $this->endereco;
+    }
+
+    public function podeAutenticar(string $senha): bool
+    {
+        return $senha === 'abcd';
     }
 }
