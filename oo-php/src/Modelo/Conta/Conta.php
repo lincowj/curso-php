@@ -2,6 +2,7 @@
 
 namespace Webjump239\OoPhp\Modelo\Conta;
 
+use InvalidArgumentException;
 use Webjump239\OoPhp\Modelo\Conta\Titular;
 
 abstract class Conta
@@ -20,16 +21,15 @@ abstract class Conta
 
     public function __destruct()
     {
-        self::$numContas--;
+        self::$numContas--; 
     }
 
     public function sacar(float $valorASacar)
     {
-        $tarifaSaque = $valorASacar * $this->percenturalTarifa;
+        $tarifaSaque = $valorASacar * $this->percentualTarifa();
         $valorSaque = $valorASacar + $tarifaSaque;
         if ($valorSaque > $this->saldo){
-            echo 'Saldo indisponível';
-            return;
+            throw new SaldoInsuficienteException($valorSaque, $this->saldo);
         } 
         $this->saldo -= $valorSaque;
     }
@@ -37,8 +37,7 @@ abstract class Conta
     public function depositar(float $valorADepositar): void
     {
         if ($valorADepositar < 0){
-            echo "Valor precisa ser positivo";
-            return;
+            throw new InvalidArgumentException();
         }
         $this->saldo += $valorADepositar;
     }
