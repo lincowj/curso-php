@@ -1,0 +1,15 @@
+{
+    "name": "webjump239/challenge",
+    "autoload": {
+        "psr-4": {
+            "Webjump239\\Challenge\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "lincowj",
+            "email": "lincoln.souza@webjump.com.br"
+        }
+    ],
+    "require": {}
+}

@@ -1,1 +1,0 @@
-Exercícios e desafios do Curso Online Introdução ao PHP: Primeiros passos com a linguagem da Alura 
